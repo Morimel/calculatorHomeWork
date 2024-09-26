@@ -1,6 +1,7 @@
 package com.example.calculatorhwandroid;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -32,7 +33,18 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
+        Intent intent = new Intent(MainActivity.this, MainActivitySecond.class);
+        Intent intent2 = new Intent(MainActivity.this, MainActivitySecond.class);
+        String text = textView.getText().toString();
+        findViewById(R.id.secondWindowButton).setOnClickListener( view -> {
+            startActivity(intent);
+             intent2.putExtra("text", text);
+
+
+        });
     }
+
+
 
     public void onNumberClick(View view) {
         String text = ((MaterialButton) view).getText().toString();
@@ -75,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             first = Double.valueOf(textView.getText().toString());
             isOperationClick = true;
         } else if (id == R.id.equalButton) {
+            findViewById(R.id.secondWindowButton).setVisibility(View.VISIBLE);
             second = Double.valueOf(textView.getText().toString());
             double result = 0.0;
 

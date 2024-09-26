@@ -13,6 +13,11 @@
         android:theme="@style/Theme.CalculatorHWAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivitySecond"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
